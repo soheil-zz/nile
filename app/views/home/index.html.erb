@@ -4,18 +4,51 @@
   <p>Enter 't:Book Title' to search by title, 'a:Author Name' to search by author, 's:Subject Name' t search by subject.</p>
 </section>
 
+<div id="base-book-div">
+  <div class="book-title"></div>
+</div>
+
 <section id="search-results">
 
   <div id="newest-books-by-title">
     <h3>Recently Added Titles</h3>
+    <% @recent_books.each do |book| %>
+      <div class='recent_title'>
+        <%= render :partial => "book", locals: {book: book} %>
+      </div>
+    <% end %>
   </div>
 
   <div id="newest-books-by-authors">
     <h3>Recently Added Authors</h3>
+    <% @recent_authors.each do |author| %>
+      <div class='recent_author'>
+        <%= author.name %>
+        <ul>
+          <% author.books.each do |book| %>
+            <li>
+              <%= render :partial => "book", locals: {book: book} %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 
   <div id="newest-books-by-subject">
     <h3>Recent Books by Subject</h3>
+    <% @recent_subjects.each do |subject| %>
+      <div class='recent_subject'>
+        <%= subject.name %>
+        <ul>
+          <% subject.books.each do |book| %>
+            <li>
+              <%= render :partial => "book", locals: {book: book} %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 
 </section>
