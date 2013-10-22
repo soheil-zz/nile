@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="container">
+    <div id="content">
+      <header>
+        <h1>Nile Bookstore</h1>
+      </header>
+      <%= yield %>
+      <footer>
+        <h6>Amazon Doesn't have a chance!</h6>
+      </footer>
+    </div>
+  </div>
+  <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" %>
 </body>
 </html>
