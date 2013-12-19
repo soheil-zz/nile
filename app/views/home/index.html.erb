@@ -1,13 +1,23 @@
 
 <section id="search-bar">
-  <input type='text' id="search-text" name="search[text]"/>
-  <p>Enter 't:Book Title' to search by title, 'a:Author Name' to search by author, 's:Subject Name' t search by subject.</p>
+  <form id='search-form' method='POST' action='/home/search'>
+    <input type='text' id="search-text" name="search[text]"/>
+    <p>Enter 't:Book Title' to search by title, 'a:Author Name' to search by author, 's:Subject Name' t search by subject.</p>
+  </form>
 </section>
 
 <section id="search-results">
 
   <div id="newest-books-by-title">
     <h3>Recently Added Titles</h3>
+    
+    <% Book.all.each do |book| %>
+      <ul id="book-<% book.id %>">
+        <li><%=book.title %></li>
+        <li><%=book.authors.map { |a| a.author }.join(', ') %>
+        <li><%=book.subjects.map { |s| s.subject}.join(', ') %>
+      </ul>
+    <% end %>
   </div>
 
   <div id="newest-books-by-authors">
