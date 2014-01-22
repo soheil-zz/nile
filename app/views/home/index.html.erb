@@ -8,6 +8,9 @@
 
   <div id="newest-books-by-title">
     <h3>Recently Added Titles</h3>
+    <% @books.each do |b| %>
+      <%= b.title %>
+    <% end %>
   </div>
 
   <div id="newest-books-by-authors">
