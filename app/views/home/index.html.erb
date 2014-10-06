@@ -1,4 +1,3 @@
-
 <section id="search-bar">
   <input type='text' id="search-text" name="search[text]"/>
   <p>Enter 't:Book Title' to search by title, 'a:Author Name' to search by author, 's:Subject Name' t search by subject.</p>
@@ -8,14 +7,36 @@
 
   <div id="newest-books-by-title">
     <h3>Books by Titles</h3>
+
+    <% @books.each do |book| %>
+      <p><%= book.title %></p>
+    <% end %>
   </div>
 
   <div id="newest-books-by-authors">
     <h3>Books by Authors</h3>
+
+    <% @authors.each do |author| %>
+      <p><%= author.name %></p>
+      <ul>
+        <% author.books.each do |book| %>
+          <li><%= book.title %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 
   <div id="newest-books-by-subject">
     <h3>Books by Subject</h3>
+
+    <% @subjects.each do |subject| %>
+      <p><%= subject.name %></p>
+      <ul>
+        <% subject.books.each do |book| %>
+          <li><%= book.title %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 
 </section>
