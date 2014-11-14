@@ -8,10 +8,27 @@
 
   <div id="newest-books-by-title">
     <h3>Books by Titles</h3>
+    <ul>
+      <% @books.each do |book| %>
+        <li><%= book.title %></li>
+      <% end %>
+    </ul>
   </div>
 
   <div id="newest-books-by-authors">
     <h3>Books by Authors</h3>
+    <ul>
+      <% @authors.each do |author| %>
+        <li>
+          <strong><%= author.name %>: </strong>
+          <ul>
+            <% author.books.each do |book| %>
+              <li><%= book.title %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
   </div>
 
   <div id="newest-books-by-subject">
@@ -19,4 +36,3 @@
   </div>
 
 </section>
-
