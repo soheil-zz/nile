@@ -1,0 +1,16 @@
+
+<% @books.each do |book| %>
+  <li><%= book.title %></li>
+    <h4>Authors:</h4>
+      <ul>
+        <% book.authors.each do |author| %>
+          <li><%= author.name %></li>
+        <% end %>
+      </ul>
+    <h4>Subjects:</h4>
+      <ul>
+        <% book.subjects.each do |subject| %>
+          <li><%= subject.name %></li>
+        <% end %>
+      </ul>
+<% end %>

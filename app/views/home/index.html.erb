@@ -1,13 +1,19 @@
 
 <section id="search-bar">
-  <input type='text' id="search-text" name="search[text]"/>
-  <p>Enter 't:Book Title' to search by title, 'a:Author Name' to search by author, 's:Subject Name' t search by subject.</p>
+  <form action="<%= search_path %>" method="POST">
+    <input type='text' id="search-text" name="search[text]"/>
+    <p>Enter 't:Book Title' to search by title, 'a:Author Name' to search by author, 's:Subject Name' t search by subject.</p>
+    <input type='submit' id="submit" name="submit" value="Search!"></input>
+  </form>
 </section>
 
 <section id="search-results">
 
   <div id="newest-books-by-title">
     <h3>Books by Titles</h3>
+      <ul>
+        <%= render partial: "books", locals: {books: @books} %>
+      </ul>
   </div>
 
   <div id="newest-books-by-authors">
