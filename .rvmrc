@@ -1,1 +1,1 @@
-rvm ruby-2.1.3@nile --create
+rvm ruby-2.2.2@nile --create
