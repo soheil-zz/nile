@@ -1,0 +1,6 @@
+<% @books.each do |book| %>
+<div>
+	<%= book.title %>, author: <%= book.author.name %>, subjects: <%= book.subjects.map(&:subject).join(', ') %>
+</div>
+<hr>
+<% end %>
